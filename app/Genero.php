@@ -5,14 +5,12 @@ namespace App;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Genero extends Model
 {
     use Uuid;
 
     protected $fillable = [
-      'name',
-      'genero_id'
+        'name'
     ];
-
     public $incrementing = false;
 }

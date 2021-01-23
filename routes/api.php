@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function(){
   Route::resource('/categories', 'CategoryController')->except('create', 'edit');
+  Route::resource('/generos', 'GeneroController')->except('create', 'edit');
 }
 );
