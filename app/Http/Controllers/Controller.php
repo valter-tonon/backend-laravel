@@ -17,7 +17,7 @@ class Controller extends BaseController
             'status' => 200,
             'success' => $msg,
             'time' => $time
-        ], 200);
+        ], 200); 
     }
 
     public function error($msg = 'Erro ao excluir arquivo', $time=1200 )
