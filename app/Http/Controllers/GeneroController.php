@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class GeneroController extends Controller
 {
+    protected $rules = [
+        'name' => 'required|max:190'
+    ];
+    protected $attributes = [
+        'name' => 'Nome'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -35,8 +41,13 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        $genero = Genero::create($request->all());
-        return $genero;
+        $data = $this->validate($request, $this->rules,['required' => 'O campo :attributes é obrigatório.',
+            'max' => 'O nome :attributes é muito extenso.'
+        ],$this->attributes);
+        if ($category = Genero::create($data)) {
+            return $this->success("Dados salvos com sucesso!");
+        }
+        return $this->error("Ocorreu em erro ao salvar os dados");
     }
 
     /**

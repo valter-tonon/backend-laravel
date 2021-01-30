@@ -38,5 +38,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function useralble()
+    {
+        return $this->morphTo();
+    }
+
     public $incrementing = false;
 }
